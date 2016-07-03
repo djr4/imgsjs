@@ -81,7 +81,7 @@ IMGS.createImageSlider = function(domNode) {
 		/* remove states */
 		IMGS.$(div).removeClass('forward');
 		IMGS.$(div).removeClass('backward');
-
+		
 		div.appendChild(img);
 
 		/* use effects (image transitions) */
@@ -89,10 +89,8 @@ IMGS.createImageSlider = function(domNode) {
 			IMGS.$(img).hide();
 			IMGS.$(img).fadeIn(fadeDuration);
 		}
-		IMGS.$(div).removeClass('eventsDisabled');
 	},
 	loadImage = function() {
-		IMGS.$(imgDiv).addClass('eventsDisabled');
 
 		img.onload = (function(div, img) {
 		if(IMGS.$(imgDiv).hasClass('forward')) {
@@ -110,7 +108,6 @@ IMGS.createImageSlider = function(domNode) {
 		img.src = imageArray[index].url;
 	},
 	createImage = function() {
-		IMGS.$(imgDiv).addClass('eventsDisabled');
 		
 		img = document.createElement('img');
 		img.onload = (function(div, img) {
@@ -158,7 +155,7 @@ IMGS.createImageSlider = function(domNode) {
 			});
 
 			/* on mouse out, enable click events */
-			IMGS.$(imgDiv).on('mouseout', function() {
+			IMGS.$(imgDiv).on('mouseleave', function() {
 				IMGS.$(imgDiv).removeClass('eventsDisabled');
 			});
 
@@ -190,3 +187,6 @@ IMGS.createImageSlider = function(domNode) {
 
 	return that;
 };
+
+
+
